@@ -18,7 +18,7 @@ div, img{position:absolute;}
 #cta{overflow:hidden;top:200px;left:94px;width:112px;height:30px;}
 #cta img{overflow:hidden;width:112px;height:30px;}
 #glare{left: -150px;}
-
+#pass{top: -50px;}
 </style>
 
 <!--Developer scott ustas-->
@@ -30,7 +30,7 @@ div, img{position:absolute;}
 <meta name="ad.size" content="width=300,height=250">
 
 <script type="text/javascript">
-  var clickTag = "https://citi.com/adventure";
+  var clickTag = "https://inheritancepass.com";
 </script>
 
 </head>
@@ -47,8 +47,16 @@ div, img{position:absolute;}
     <div class="text1" id="text1c"><img src="text1c.png"></div>
     <div class="text1" id="text1d"><img src="text1d.png"></div>
     <div class="text1" id="text1e"><img src="text1e.png"></div>
+    <div class="" id="background2"><img src="background2.jpg"></div>
+    <div class="" id="pass"><img src="pass.png"></div>
+    <div class="" id="background3"><img src="background2.jpg"></div>
+    <div class="text2" id="text2a"><img src="text2a.png"></div>
+    <div class="text2" id="text2b"><img src="text2b.png"></div>
+    <div class="text2" id="text2c"><img src="text2c.png"></div>
+    <div class="text2" id="text2d"><img src="text2d.png"></div>
+    <div class="text2" id="logo"><img src="logo.png"></div>
 
-    <div id="cta">
+    <div class="text2" id="cta">
       <div id="ctaImage"><img src="cta.png"> </div>
       <div id="glare"> <img src="glare.png"> </div>
     </div>
@@ -63,25 +71,29 @@ var container;
 var content;
 
 function init(){
-container = document.getElementById('container');
-content   = document.getElementById('content');
-container.style.display = "block";
-content.style.display   = "block";
-startAnimation();
-addListeners();
+  container = document.getElementById('container');
+  content   = document.getElementById('content');
+  container.style.display = "block";
+  content.style.display   = "block";
+  startAnimation();
 }
 
 function addListeners() {
-container.addEventListener('mouseover', ctaRollOverHandler, false);
-container.addEventListener('mouseout', ctaRollOutHandler, false);
+  container.addEventListener('mouseover', ctaRollOverHandler, false);
+  container.addEventListener('mouseout', ctaRollOutHandler, false);
 }
 
 function startAnimation() {
 
-var tl = new TimelineMax({  });
-tl.timeScale( 1 );
+  var tl = new TimelineMax({  });
+  tl.timeScale( 1 );
 
-tl.staggerFrom(".text1", 1.25, {top:"+=15", ease: "expo.out", opacity:0,}, .25);
+  tl.staggerFrom(".text1", 1.25, {top:"+=15", ease: "expo.out", opacity:0,}, .25);
+  tl.from("#background2", .75, {delay:1.5, ease: "expo.out", opacity:0});
+  tl.from("#pass", 1.25, {delay:0, ease: "power2.out", y:300},'-=.25');
+  tl.from("#background3", .75, {delay:2, ease: "expo.out", opacity:0});
+  tl.staggerFrom(".text2", 1.25, {top:"+=15", ease: "expo.out", opacity:0}, .25, '-=.5');
+  tl.fromTo("#glare", .75, {css: {alpha:1, left: -150}}, {css:{left:150, alpha:0}, onComplete:addListeners} ,'-=.5');
 
 }
 
@@ -95,7 +107,7 @@ function ctaRollOutHandler(){
 }
 
 window.onload = function() {
-  init();
+init();
 }
 
 </script>
