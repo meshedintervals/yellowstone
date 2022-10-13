@@ -88,11 +88,11 @@ function startAnimation() {
   var tl = new TimelineMax({  });
   tl.timeScale( 1 );
 
-  tl.staggerFrom(".text1", 1.25, {top:"+=15", ease: "expo.out", opacity:0,}, .25);
-  tl.from("#background2", .75, {delay:1.5, ease: "expo.out", opacity:0});
-  tl.from("#pass", 1.25, {delay:0, ease: "power2.out", y:300},'-=.25');
+  tl.staggerFrom(".text1", .9, {top:"+=15", ease: "expo.out", opacity:0,}, .25);
+  tl.from("#background2", .75, {delay:2, ease: "expo.out", opacity:0});
+  tl.from("#pass", 1.25, {delay:0, rotation:25, ease: "power2.out", y:300},'-=.25');
   tl.from("#background3", .75, {delay:2, ease: "expo.out", opacity:0});
-  tl.staggerFrom(".text2", 1.25, {top:"+=15", ease: "expo.out", opacity:0}, .25, '-=.5');
+  tl.staggerFrom(".text2", .9, {top:"+=15", ease: "expo.out", opacity:0}, .25, '-=.5');
   tl.fromTo("#glare", .75, {css: {alpha:1, left: -150}}, {css:{left:150, alpha:0}, onComplete:addListeners} ,'-=.5');
 
 }
